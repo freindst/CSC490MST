@@ -1,7 +1,5 @@
 import random
-import numpy as np
 import csv
-import pandas as pd
 
 
 class util:
@@ -33,8 +31,5 @@ class util:
         with open('graph.csv', 'r', newline='') as file:
             myreader = csv.reader(file, delimiter=',')
             for rows in myreader:
-                r = []
-                for i in rows:
-                    r.append(int(i))
-                v.append(r)
+                v.append([int(i) for i in rows])
         return v

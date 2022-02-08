@@ -1,5 +1,5 @@
 import util
-
+import timeit
 
 class Graph:
     def __init__(self, vertices):
@@ -28,13 +28,12 @@ class Graph:
                             E.append([j, k, self.V[j][k]])
                 edge = self.findMin(E)
                 L.append(edge)
-                MST[edge[0]] = True
+                #MST[edge[0]] = True
                 MST[edge[1]] = True
                 E = []
                 minLength = minLength + edge[2]
-        print(L)
+        #print(L)
         print('\npath length is: ', minLength)
-
 
 #g = Graph([
 #    [0, 2,  6,  12],
@@ -47,5 +46,9 @@ u = util.util()
 #v = u.generateGraph(400, 20)
 #print(v)
 #u.generateGraphCSV(400, 20)
-#g = Graph(u.readCSV())
+g = Graph(u.readCSV())
+#print(u.readCSV())
+
 #g.MST_Process()
+
+print(timeit.Timer(g.MST_Process).timeit(number=1))
